@@ -1,0 +1,61 @@
+.cover {
+  background-image: url("../img/cover.jpg");
+  @extend %backgroundImg;
+  height: 500px;
+  position: relative;
+  .cover__content {
+    max-width: 50%;
+    position: absolute;
+    top: 50%;
+    left: 12%;
+    transform: translateY(-50%);
+    h1 {
+      @include styleText($color-white-0, $fs-2, $fw-3);
+      white-space: nowrap;
+    }
+    p {
+      @include styleText($color-white-0, $fs-3, $fw-0);
+    }
+    .cover__form {
+      @include styleFormSearch(
+        $color-white-0,
+        $color-white-0,
+        $color-white-0,
+        $color-red-0,
+        $color-red-0,
+        $color-black-0
+      );
+    }
+  }
+  @media screen and (max-width: 993px) {
+    .cover__content {
+      max-width: 60%;
+    }
+  }
+  @include responsive("medium") {
+    .cover__content {
+      max-width: 70%;
+
+      h1 {
+        white-space: normal;
+      }
+    }
+  }
+  @media screen and (max-width: 666px) {
+    .cover__content {
+      max-width: 70%;
+    }
+  }
+  // @include responsive("small") {
+  //   .cover__content {
+  //     // max-width: 360px;
+  //     left: 5%;
+  //   }
+  // }
+  @media screen and (max-width: 398px) {
+    .cover__content {
+      max-width: 90%;
+      left: 5%;
+    }
+  }
+}

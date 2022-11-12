@@ -1,0 +1,180 @@
+header {
+  .myNavBar {
+    box-shadow: 0 0 1px 1px rgb(20 23 28 / 10%), 0 3px 1px 0 rgb(20 23 28 / 10%);
+    .myNavBar__toggler {
+      display: none;
+    }
+    .myNavBar__left {
+      display: flex;
+      align-items: center;
+      padding-right: $pd-2;
+      .navbar-brand {
+        flex-grow: 1;
+        margin-right: 0;
+        img {
+          width: 110px;
+          margin: 0 auto;
+        }
+        .logo--white {
+          display: none;
+        }
+      }
+      .myNavBar__categories {
+        flex-grow: 1;
+        text-align: center;
+        @include styleText($color-black-2, $fs-1, $fw-0);
+        i {
+          color: $color-gray-4;
+        }
+      }
+      .myNavBar__form-search {
+        flex-grow: 8;
+        @include styleFormSearch(
+          $color-gray-0,
+          $color-white-0,
+          $color-gray-2,
+          $color-red-0,
+          $color-red-0,
+          $color-black-0
+        );
+      }
+    }
+    .myNavBar__right {
+      .navbar-nav {
+        justify-content: space-between;
+        align-items: center;
+        .nav-item {
+          position: relative;
+          padding: $pd-0 + 2 $pd-0;
+          .nav-link {
+            @include styleText($color-black-2, $fs-1, $fw-0);
+            transition: all 0.5s;
+          }
+          .overlay {
+            display: none;
+            position: absolute;
+            top: 125%;
+            right: 0;
+            width: 330px;
+            background-color: #fff;
+            padding: $pd-3;
+            text-align: center;
+            border-top: 1px solid $color-gray-3;
+            box-shadow: 0 4px 16px 0 rgb(20 23 28 / 25%);
+            white-space: normal;
+            z-index: 10;
+            &:before {
+              content: "";
+              position: absolute;
+              top: -7%;
+              left: 84%;
+              display: block;
+              width: 15px;
+              height: 15px;
+              background-color: #fff;
+              border-top: 1px solid $color-gray-3;
+              border-left: 1px solid $color-gray-3;
+              transform: rotate(45deg);
+            }
+          }
+          &:hover {
+            cursor: pointer;
+            background-color: $color-gray-3;
+            .overlay {
+              display: block;
+            }
+          }
+        }
+        .myNavBar__cart {
+          width: 50px;
+          height: 50px;
+          line-height: 20px;
+          border-radius: 50%;
+          text-align: center;
+        }
+        .myNavBar__buttons:hover {
+          background-color: transparent;
+        }
+      }
+    }
+  }
+  @include responsive("screen-1") {
+    .myNavBar {
+      .myNavBar__right {
+        .navbar-nav {
+          .nav-item {
+            .nav-link {
+              font-size: $fs-1 - 1;
+            }
+          }
+        }
+      }
+    }
+  }
+  @media screen and (max-width: 1226px) {
+    .myNavBar {
+      .myNavBar__right {
+        .navbar-nav {
+          .nav-item {
+            white-space: nowrap;
+          }
+        }
+      }
+    }
+  }
+  @include responsive("extra-large") {
+    .myNavBar {
+      .myNavBar__right {
+        .navbar-nav {
+          justify-content: space-evenly;
+          // align-items: flex-start;
+          .business,
+          .instructor {
+            display: none;
+          }
+          .myNavBar__cart {
+            .nav-link {
+              font-size: $fs-5;
+            }
+          }
+        }
+      }
+    }
+  }
+  @include responsive("large") {
+    .myNavBar {
+      .myNavBar__right {
+        .navbar-nav {
+          flex-direction: row;
+        }
+      }
+    }
+  }
+  @include responsive("medium") {
+    .myNavBar {
+      .myNavBar__toggler {
+        display: block;
+        .navbar-toggler {
+          border: none;
+          &:focus {
+            box-shadow: none;
+          }
+        }
+      }
+      .myNavBar__left {
+        .myNavBar__categories,
+        .myNavBar__form-search {
+          display: none;
+        }
+      }
+      .myNavBar__right {
+        .navbar-nav {
+          justify-content: flex-end;
+          .myNavBar__buttons {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+}

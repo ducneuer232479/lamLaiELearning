@@ -1,0 +1,45 @@
+.students {
+  padding: $pd-5 + 2 0;
+  .students__content {
+    width: 90%;
+    margin: 0 auto;
+    h2 {
+      font-size: $fs-5 + 4;
+      margin-bottom: $mg-4 - 1;
+    }
+    .students__carousel {
+      .card {
+        height: 320px;
+        .card-body {
+          padding: 2rem;
+          .card__top {
+            display: flex;
+            margin-bottom: $mg-2;
+            .card__avatar {
+              img {
+                width: 64px;
+                height: 64px;
+                border-radius: 50%;
+                margin-right: $mg-2;
+              }
+            }
+            .card__info {
+              .card__name {
+                margin-bottom: 0;
+              }
+            }
+          }
+          .students__text {
+            display: block;
+            @include styleText($color-black-0, $fs-0, $fw-0);
+          }
+        }
+      }
+    }
+  }
+  @media screen and (max-width: 900px) {
+    .students__content .students__carousel .card {
+      height: auto;
+    }
+  }
+}

@@ -1,0 +1,46 @@
+.card {
+  margin-right: 1px;
+  cursor: pointer;
+  .card-body {
+    padding: 1rem;
+    .card-title {
+      @include styleText($color-black-0, $fs-0, $fw-2);
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 2;
+      text-overflow: ellipsis;
+      overflow: hidden;
+    }
+    .card-text {
+      margin: $mg-0 0;
+      @include styleText($color-gray-1, $fs-1 - 1, $fw-0);
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 1;
+      text-overflow: ellipsis;
+      overflow: hidden;
+    }
+    .card__stars {
+      i {
+        @include styleText($color-yellow-0, $fs-1 - 1, $fw-4);
+      }
+      .card__rate {
+        @include styleText($color-gray-1, $fs-1, $fw-2);
+      }
+      .card__total {
+        @include styleText($color-gray-1, $fs-1, $fw-0);
+      }
+    }
+    .card__price {
+      text-align: right;
+      margin-top: $mg-0 + 2;
+      span:first-of-type {
+        @include styleText($color-gray-1, $fs-1, $fw-0);
+        text-decoration: line-through;
+      }
+      span:last-of-type {
+        @include styleText($color-black-0, $fs-0, $fw-3);
+      }
+    }
+  }
+}
